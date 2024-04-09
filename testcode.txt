@@ -1,3 +1,22 @@
 Code goes here
 let's test stuff
 test update!
+
+const axios = require('axios');
+
+async function createFacebookUser() {
+    try {
+        const response = await axios.post('https://graph.facebook.com/v12.0/users', {
+            access_token: 'YOUR_ACCESS_TOKEN',
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+            password: 'password123',
+        });
+
+        console.log('User created successfully:', response.data);
+    } catch (error) {
+        console.error('Error creating user:', error.response.data);
+    }
+}
+
+createFacebookUser();
